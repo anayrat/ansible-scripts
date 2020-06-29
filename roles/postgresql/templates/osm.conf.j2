@@ -1,0 +1,73 @@
+#jinja2: trim_blocks: True
+
+listen_addresses = '{{ listen_addresses }}'
+port = {{ port }}
+max_connections = {{ max_connections }}
+
+shared_buffers = {{ shared_buffers }}
+work_mem = {{ work_mem }}
+maintenance_work_mem = {{ maintenance_work_mem }}
+temp_file_limit = {{ temp_file_limit }}
+
+effective_io_concurrency = {{ effective_io_concurrency }}
+
+max_worker_processes = {{ max_worker_processes }}
+{% if pg_version >= 11 %}
+max_parallel_maintenance_workers = {{ max_parallel_maintenance_workers }}
+{% endif %}
+max_parallel_workers_per_gather = {{ max_parallel_workers_per_gather }}
+max_parallel_workers = {{ max_parallel_workers }}
+
+wal_level = {{ wal_level }}
+fsync = {{ fsync }}
+synchronous_commit = {{ synchronous_commit }}
+full_page_writes = {{ full_page_writes }}
+wal_compression = {{ wal_compression }}
+
+{% if pg_version >= 12 %}
+wal_init_zero = {{ wal_init_zero }}
+wal_recycle = {{ wal_recycle }}
+{% endif %}
+wal_buffers = {{ wal_buffers }}
+
+checkpoint_timeout = {{ checkpoint_timeout }}
+max_wal_size = {{ max_wal_size }}
+min_wal_size = {{ min_wal_size }}
+checkpoint_completion_target = {{ checkpoint_completion_target }}
+
+seq_page_cost = {{ seq_page_cost }}
+random_page_cost = {{ random_page_cost }}
+
+effective_cache_size = {{ effective_cache_size }}
+
+default_statistics_target = {{ default_statistics_target }}
+
+{% if pg_version >= 11 %}
+jit = {{ jit }}
+{% endif %}
+
+log_min_duration_statement = {{ log_min_duration_statement }}
+log_checkpoints = {{ log_checkpoints }}
+log_connections = {{ log_connections }}
+log_disconnections = {{ log_disconnections }}
+log_line_prefix = {{ log_line_prefix }}
+log_lock_waits = {{ log_lock_waits }}
+log_statement = '{{ log_statement }}'
+log_temp_files = {{ log_temp_files }}
+
+cluster_name= '{{ cluster_name }}'
+
+log_autovacuum_min_duration = {{ log_autovacuum_min_duration }}
+autovacuum_max_workers = {{ autovacuum_max_workers }}
+autovacuum_vacuum_cost_delay = {{ autovacuum_vacuum_cost_delay }}
+autovacuum_vacuum_cost_limit = {{ autovacuum_vacuum_cost_limit }}
+
+statement_timeout = {{ statement_timeout }}
+
+lc_messages= '{{ lc_messages }}'
+shared_preload_libraries = '{{ shared_preload_libraries }}'
+
+
+auto_explain.log_min_duration = {{ auto_explain_log_min_duration }}
+
+pg_stat_statements.track = {{ pg_stat_statements_track }}

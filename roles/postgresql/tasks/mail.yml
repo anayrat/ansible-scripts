@@ -1,0 +1,5 @@
+- name: add pgdg repository
+- name: install packages
+- name: create instances
+- name: generate osm custom postgres config
+
